@@ -56,11 +56,9 @@ public class ChatMarksParser
         if (!int.TryParse(rawMessage, out int mark)) return;
         if (mark is > 10 or < 1) return;
 
-
-
         if (_usersIdList.ContainsKey(userId))
         {
-            _usersIdList.Add(userId+_uniqUsersCounter, mark);
+            _usersIdList[userId] = mark;
             _uniqUsersCounter++;
         }
         else
